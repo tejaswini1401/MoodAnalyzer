@@ -1,14 +1,33 @@
 package com.moodAnalyzer;
 
 public class MoodAnalyserOne {
-	
-	public String analyzeMood(String message) {
-		if(message.contains("Sad")) {
-			return "SAD";
-		}
-		else if(message.contains("Happy")) {
-			return "HAPPY";
-		}
-		return "";
-	}
+
+    private String message;
+
+    public MoodAnalyserOne(String message) {
+        this.message = message;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String analyzeMood() {
+        try {
+            if (message == null || message.isEmpty()) {
+                throw new IllegalArgumentException("Enter a valid mood");
+            }
+            if (message.toLowerCase().contains("sad")) {
+                return "Sad";
+            } else {
+                return "Happy";
+            }
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException("Enter a valid mood", e);
+        }
+    }
 }
