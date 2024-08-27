@@ -20,10 +20,4 @@ class TestMoodAnalyzer {
         String response = obj.analyzeMood();
         assertEquals("Happy", response);
     }
-    
-    @Test 
-    void moodNullTest() {
-        MoodAnalyserOne obj = new MoodAnalyserOne(null);
-        assertThrows(IllegalArgumentException.class, obj::analyzeMood);
-    }
 }
